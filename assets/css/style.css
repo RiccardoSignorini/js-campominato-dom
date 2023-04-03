@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.btn{
+    margin-bottom: 0.8rem;
+}
+
+#campo{
+    background-color: aqua;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#griglia{
+    width: 500px;
+    height: 500px;
+    border: 1px solid black;
+}
+
+.cubo{
+    width: calc(100%/10);
+    height: calc(100%/10);
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clicked{
+    background-color: aquamarine;
+}
