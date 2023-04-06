@@ -1,11 +1,19 @@
+:root{
+    --granCelle: 10;
+}
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.btn{
+#select{
     margin-bottom: 0.8rem;
+}
+
+select{
+    margin-right: 4rem;
 }
 
 #campo{
@@ -23,8 +31,8 @@
 }
 
 .cubo{
-    width: calc(100%/10);
-    height: calc(100%/10);
+    width: calc(100%/var(--granCelle));
+    height: calc(100%/var(--granCelle));
     border: 1px solid black;
     display: flex;
     justify-content: center;
