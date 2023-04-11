@@ -9,7 +9,7 @@ Al termine della partita il software deve comunicare il punteggio, cioè il nume
 // COSTANTI E VARIABILI
 const button = document.querySelector('button')
 
-const field = document.getElementById('campo')
+const field = document.getElementById('griglia')
 
 const root = document.querySelector(':root')
 
@@ -35,13 +35,17 @@ button.addEventListener('click', function() {
 
 // FUNZIONE AL CLICK (BOTTONE)
 function createField(){
+    field.innerHTML = ''
+
     let selectDifficult = parseInt(difficult.value)
 
-    console.log(selectDifficult)
+    let bombs = createBomb(selectDifficult)
+
+    console.log(bombs)
 
     adaptiveCell(selectDifficult)
 
-    for(let i = 1; i<=selectDifficult; i++){
+    for(let i=1; i<=selectDifficult; i++){
         let cubo = document.createElement('div')
 
         cubo.classList.add('cubo')
@@ -51,15 +55,30 @@ function createField(){
         document.querySelector('#griglia').append(cubo)
 
         // EVENTO AL CLICK (CUBO)
-        cubo.addEventListener('click', function() {
-            colorCubo()
+        cubo.addEventListener('click', function() { 
 
-            console.log(this.innerText)
+            if(!bombs.includes(i)){
+                this.classList.add('clicked')                
+            } else{
+                field.innerHTML = '<p>Hai pestato una bomba!</p>'
+            }
         })
+    }
+}
 
-        // FUNZIONE AL CLICK (CUBO)
-        function colorCubo(){
-            cubo.classList.add('clicked')
+// FUNZIONE DI CREAZIONE DELLE BOMBE
+function createBomb(valDifficult){
+    let arrayBomb = []
+
+    while(arrayBomb.length<16){
+        let bomb = randomNum(1, valDifficult)
+
+        if(!arrayBomb.includes(bomb)){
+            arrayBomb.push(bomb)
         }
     }
+
+    console.log(arrayBomb)
+
+    return arrayBomb
 }
