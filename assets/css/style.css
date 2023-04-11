@@ -42,3 +42,7 @@ select{
 .clicked{
     background-color: aquamarine;
 }
+
+.bomb{
+    background-color: crimson;
+}

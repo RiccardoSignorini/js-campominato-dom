@@ -41,6 +41,8 @@ function createField(){
 
     let bombs = createBomb(selectDifficult)
 
+    let score = 0
+
     console.log(bombs)
 
     adaptiveCell(selectDifficult)
@@ -58,10 +60,16 @@ function createField(){
         cubo.addEventListener('click', function() { 
 
             if(!bombs.includes(i)){
-                this.classList.add('clicked')                
+                this.classList.add('clicked')
+                score++                
             } else{
-                field.innerHTML = '<p>Hai pestato una bomba!</p>'
+                this.classList.add('bomb') 
+                setTimeout(function(){
+                    field.innerHTML = `Hai pestato una bomba! Il tuo punteggio è ${score}`
+                },1500)
             }
+
+            console.log(score)
         })
     }
 }
